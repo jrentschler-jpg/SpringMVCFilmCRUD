@@ -64,7 +64,7 @@
 				<tr>
 					<td>Category:</td>
 					<td><c:if test="${empty film.category">No Category Found</c:if>
-						<c:if test="${not empty film.category }">${film.findFilmsByCategory }</c:if></td>
+						<c:if test="${film.category }">${film.category }</c:if></td>
 
 				</tr>
 				<tr>
