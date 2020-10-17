@@ -26,6 +26,30 @@ public class FilmController {
 		mv.setViewName("OneFilmSearch");
 		return mv;
 	}
+	@RequestMapping(path="getNewFilmInfo.do")
+	public ModelAndView newFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Update");
+		return mv;
+	}
+	@RequestMapping(path="deleteFilm.do")
+	public ModelAndView deleteFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("DeleteFilm");
+		return mv;
+	}
+	@RequestMapping(path="SearchKeyword.do")
+	public ModelAndView SearchKeyword() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("SearchKeyword");
+		return mv;
+	}
+	@RequestMapping(path="results.do")
+	public ModelAndView SearchFilmResults(String input) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("ListOfFilmsSearch");
+		return mv;
+	}
 }
 //	private boolean menuSwitch() {
 //boolean keepGoing = true;
