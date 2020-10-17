@@ -8,5 +8,10 @@
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
   
-  <context:component-scan base-package="com.skilldistillery.films.controllers"/>
+  <context:component-scan base-package="com.skilldistillery.films.controllers, com.skilldistillery.film.dao"/>
+  <mvc:annotation-driven></mvc:annotation-driven>
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/"/>
+    <property name="suffix" value=".jsp"/>
+</bean>
 </beans>

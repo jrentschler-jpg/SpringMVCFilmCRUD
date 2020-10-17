@@ -14,12 +14,18 @@ public class FilmController {
 		private MVCFilmsSiteDAOImpl DAO;
 	
 	
-	@RequestMapping(path="index.do", method=RequestMethod.GET)
+	@RequestMapping(path="addFilm.do", method=RequestMethod.GET)
 	  public ModelAndView index() {
 	    ModelAndView mv = new ModelAndView();
-	    mv.setViewName("WEB-INF/ListOfFilmsSearch.jsp");
+	    mv.setViewName("addFilm");
 	    return mv;
 	  }
+	@RequestMapping(path="OneFilmSearch.do")
+	public ModelAndView OneFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("OneFilmSearch");
+		return mv;
+	}
 }
 //	private boolean menuSwitch() {
 //boolean keepGoing = true;
