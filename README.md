@@ -1,6 +1,6 @@
 <img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg">
 
-##### Aaron Cottrell &nbsp;Jourdan Rentschler &nbsp;David Daniels
+### Aaron Cottrell &nbsp;Jourdan Rentschler &nbsp;David Daniels
 <br>
 
 # Spring MVC Film C.R.U.D. Project
