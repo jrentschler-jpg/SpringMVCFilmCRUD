@@ -54,9 +54,12 @@ public class FilmController {
 		mv.setViewName("Update");
 		return mv;
 	}
-	@RequestMapping(path="deleteFilm.do")
-	public ModelAndView deleteFilm() {
+	@RequestMapping(path="deleteFilm.do", method=RequestMethod.GET)
+	public ModelAndView deleteFilm(@RequestParam("filmid") int filmId ) {
 		ModelAndView mv = new ModelAndView();
+		Film filmToDelete = DAO.findFilmById(filmId);
+		filmToDelete.setCategory(DAO.findCategoryByFilmID(filmToDelete.getId()));
+		mv.addObject("film", filmToDelete);
 		mv.setViewName("DeleteFilm");
 		return mv;
 	}
