@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Add New Film</h1>
-<form:form action="addFilm.do" method="POST" modelAttribute="film">
+<form:form action="addNewFilm.do" method="POST" modelAttribute="film">
 	<form:label path="title">Film Title:</form:label><br>
 	<form:input class="input" path="title" placeholder="Enter the Title:"/>
 	<br>
@@ -46,7 +46,9 @@
 	
 	<input class="submit" type="submit" value="Submit"/>
 </form:form>
-	
+<form action="confirmationPage.do" method="POST">
+</form>
+	 
 
 
 

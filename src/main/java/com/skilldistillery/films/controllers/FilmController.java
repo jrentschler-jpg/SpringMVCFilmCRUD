@@ -24,7 +24,7 @@ public class FilmController {
 	  public ModelAndView index() {
 	    ModelAndView mv = new ModelAndView();
 	    mv.addObject(new Film());
-	    mv.setViewName("ConfirmationPage");
+	    mv.setViewName("addFilm");
 	    return mv;
 	  }
 	@RequestMapping(path="OneFilmSearch.do")
@@ -75,7 +75,7 @@ public class FilmController {
 		List<Film> searchList =  DAO.findFilmsFromSearch(input);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listFilms", searchList);
-		mv.setViewName("ListOfFilmsSearch");
+		mv.setViewName("OneFilmSearchResult");
 		return mv;
 	}
 }
