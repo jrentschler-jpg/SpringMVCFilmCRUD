@@ -73,19 +73,33 @@
 			<td>${film.specialFeatures }</td>
 
 		</tr>
+		<tr>
+			<td>Category:</td>
+			<td><c:if test="${empty film.findFilmsByCategory">No Category Found</c:if>
+				<c:if test="${not empty film.findFilmsByCategory }">${film.findFilmsByCategory }</c:if></td>
+
+		</tr>
+		<tr>
+			<td>Actors:</td>
+			<td><c:if test="${empty film.actors">No Actor Found</c:if> <c:if
+					test="${not empty film.actors }">${film.actors }</c:if></td>
+
+		</tr>
 	</table>
 	<form action="getNewFilmInfo.do" method="GET">
-	<button type="submit" name="filmId" value="${film.filmId }">Update Film Information </button>
+		<button type="submit" name="filmId" value="${film.filmId }">Update
+			Film Information</button>
 	</form>
 	<form action="deleteFilm.do" method="POST">
-	<button type="submit" name="filmId" value="${film.filmId }">Delete Film</button>
+		<button type="submit" name="filmId" value="${film.filmId }">Delete
+			Film</button>
 	</form>
-	
+
 	<br>
 	<br>
 	<p>
-	<a href="index.html" class="btn btn-secondary" role="button">Back to
-				Home</a>
+		<a href="index.html" class="btn btn-secondary" role="button">Back
+			to Home</a>
 	</p>
 
 
