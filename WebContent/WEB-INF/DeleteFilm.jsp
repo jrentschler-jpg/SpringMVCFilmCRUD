@@ -81,7 +81,8 @@
 		</tr>
 		<tr>
 			<td>Actors:</td>
-			<td><c:if test="${empty film.actors">No Actor Found</c:if> <c:if
+			<td><c:if test="${empty film.actors}">No Actor Found</c:if> 
+			<c:if
 					test="${not empty film.actors }">${film.actors }</c:if></td>
 
 		</tr>

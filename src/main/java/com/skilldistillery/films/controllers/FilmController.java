@@ -23,6 +23,7 @@ public class FilmController {
 	@RequestMapping(path="addFilm.do", method=RequestMethod.GET)
 	  public ModelAndView index() {
 	    ModelAndView mv = new ModelAndView();
+	    mv.addObject(new Film());
 	    mv.setViewName("addFilm");
 	    return mv;
 	  }
@@ -55,7 +56,7 @@ public class FilmController {
 		return mv;
 	}
 	@RequestMapping(path="deleteFilm.do", method=RequestMethod.GET)
-	public ModelAndView deleteFilm(@RequestParam("filmid") int filmId ) {
+	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId ) {
 		ModelAndView mv = new ModelAndView();
 		Film filmToDelete = DAO.findFilmById(filmId);
 		filmToDelete.setCategory(DAO.findCategoryByFilmID(filmToDelete.getId()));

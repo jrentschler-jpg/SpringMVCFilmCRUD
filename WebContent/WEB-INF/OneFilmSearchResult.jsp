@@ -93,7 +93,7 @@
 			<button type="submit" name="filmId" value="${film.id }">Update
 				Film Information</button>
 		</form>
-		<form action="deleteFilm.do" method="POST">
+		<form action="deleteFilm.do" method="GET">
 			<button type="submit" name="filmId" value="${film.id }">Delete
 				Film</button>
 		</form>
