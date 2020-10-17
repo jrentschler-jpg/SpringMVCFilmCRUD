@@ -36,10 +36,11 @@ public class FilmController {
 	public ModelAndView FilmbyID(@RequestParam("Film ID")int input) {
 		ModelAndView mv = new ModelAndView();
 		Film searchFilm = DAO.findFilmById(input);
-		System.out.println(input);
-		System.out.println(searchFilm);
+		searchFilm.setCategory("Romance");
+//		System.out.println(input);
+//		System.out.println(searchFilm);
 		mv.addObject("film", searchFilm);
-		mv.setViewName("ListOfFilmsSearch");
+		mv.setViewName("OneFilmSearchResult");
 		return mv;
 	}
 		

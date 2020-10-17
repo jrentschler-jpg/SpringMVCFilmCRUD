@@ -18,6 +18,7 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private String language;
+	private String category;
 	
 	
 
@@ -222,6 +223,22 @@ public class Film {
 	}
 	public void setSpecialFeatures(String specialFeatures) {
 		this.specialFeatures = specialFeatures;
+	}
+
+
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 }

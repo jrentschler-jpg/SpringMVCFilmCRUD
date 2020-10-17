@@ -77,8 +77,8 @@
 			</tr>
 			<tr>
 				<td>Category:</td>
-				<td><c:if test="${empty film.findFilmsByCategory">No Category Found</c:if>
-					<c:if test="${not empty film.findFilmsByCategory }">${film.findFilmsByCategory }</c:if></td>
+				<td><c:if test="${empty film.category">No Category Found</c:if>
+					<c:if test="${not empty film.category }">${film.findFilmsByCategory }</c:if></td>
 
 			</tr>
 			<tr>
