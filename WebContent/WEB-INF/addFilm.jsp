@@ -60,17 +60,29 @@
 					<td>${film.specialFeatures }</td>
 
 				</tr>
+				<tr>
+					<td>Category:</td>
+					<td><c:if test="${empty film.findFilmsByCategory">No Category Found</c:if>
+						<c:if test="${not empty film.findFilmsByCategory }">${film.findFilmsByCategory }</c:if></td>
+
+				</tr>
+				<tr>
+					<td>Actors:</td>
+					<td><c:if test="${empty film.actors">No Actor Found</c:if>
+						<c:if test="${not empty film.actors }">${film.actors }</c:if></td>
+
+				</tr>
 
 			</table>
 		</c:when>
 	</c:choose>
-	
+
 	<c:otherwise>
 		Error: No Film Found.
 	</c:otherwise>
-	
-	
-	
+
+
+
 	<p>
 		<a href="index.html" class="btn btn-secondary" role="button">Back
 			to Home</a>
