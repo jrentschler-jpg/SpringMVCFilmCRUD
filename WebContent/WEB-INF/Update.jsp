@@ -18,27 +18,27 @@
 	<br>
 
 <form:form action="editFilm.do" method="POST" modelAttribute="film">
-			ID:<form:input path="id" value="${details.id }" readonly="true" />
+			ID:<form:input path="id" value="${film.id }" readonly="true" />
 			<br>
-			Title:<form:input path="title" value="${details.title }" />
+			Title:<form:input path="title" value="${film.title }" />
 			<br>
 			Description:<form:input path="description"
-				value="${details.description }" />
+				value="${film.description }" />
 			<br> 
 			Release Year:<form:input path="release_year"
-				value="${details.release_year }" />
+				value="${film.release_year }" />
 			<form:errors path="release_year" />
 			<br>
 			Rental Duration:<form:input path="rental_duration"
-				value="${details.rental_duration }" />
+				value="${filmrental_duration }" />
 			<br> 
 			Rental Rate:<form:input path="rental_rate"
-				value="${details.rental_rate }" />
+				value="${film.rental_rate }" />
 			<br>
-			Length:<form:input path="length" value="${details.length }" />
+			Length:<form:input path="length" value="${film.length }" />
 			<br>
 			Replacement Cost:<form:input path="replacement_cost"
-				value="${details.replacement_cost }" />
+				value="${film.replacement_cost }" />
 			<br>
 			Language:   <form:select path="language_id">
 				<option value="1">English</option>
