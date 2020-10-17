@@ -24,7 +24,7 @@ public class FilmController {
 	  public ModelAndView index() {
 	    ModelAndView mv = new ModelAndView();
 	    mv.addObject(new Film());
-	    mv.setViewName("addFilm");
+	    mv.setViewName("ConfirmationPage");
 	    return mv;
 	  }
 	@RequestMapping(path="OneFilmSearch.do")
