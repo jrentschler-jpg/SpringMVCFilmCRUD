@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Add New Film</h1>
-<form:form action="addNewFilm.do" method="POST" modelAttribute="film">
+<form:form action="addFilm.do" method="POST" modelAttribute="film">
 	<form:label path="title">Film Title:</form:label><br>
 	<form:input class="input" path="title" placeholder="Enter the Title:"/>
 	<br>
@@ -18,7 +18,7 @@
 	<form:input class="input" path="decsription" placeholder="Enter the Description:"/>
 	<br>
 	<form:label path="releaseYear">Release Year:</form:label><br>
-	<form:input class="input" path="realeaseYear" placeholder="Enter the Release Year:"/>
+	<form:input class="input" path="releaseYear" placeholder="Enter the Release Year:"/>
 	<br>
 	<form:label path="languageId">Language:</form:label><br>
 		<form:select path="languageId">Language:
