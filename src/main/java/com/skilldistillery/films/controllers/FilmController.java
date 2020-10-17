@@ -1,13 +1,19 @@
 package com.skilldistillery.films.controllers;
 //import java.util.List;
 
+
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.MVCFilmsSiteDAOImpl;
+import com.skilldistillery.film.entities.Film;
 @Controller
 public class FilmController {
 	@Autowired
@@ -44,9 +50,11 @@ public class FilmController {
 		mv.setViewName("SearchKeyword");
 		return mv;
 	}
-	@RequestMapping(path="results.do")
-	public ModelAndView SearchFilmResults(String input) {
+	@RequestMapping(path="results.do", method= RequestMethod.GET)
+	public ModelAndView SearchFilmResults(@RequestParam("Keyword")String input) {
+		List<Film> searchList =  DAO.findFilmsFromSearch(input);
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("listFilms", searchList);
 		mv.setViewName("ListOfFilmsSearch");
 		return mv;
 	}
