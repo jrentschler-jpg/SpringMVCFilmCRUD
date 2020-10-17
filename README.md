@@ -1,4 +1,5 @@
-## Spring MVC Film C.R.U.D. Project
+## ![Logo](http://skilldistillery.com/downloads/sd_logo.jpg) Aaron Cottrell, Jourdan Rentschler & David Daniels
+# Spring MVC Film C.R.U.D. Project
 
 This is the readme...I am making a small change.
 
