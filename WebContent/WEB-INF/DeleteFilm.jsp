@@ -88,11 +88,11 @@
 		</tr>
 	</table>
 	<form action="getNewFilmInfo.do" method="GET">
-		<button type="submit" name="filmId" value="${film.filmId }">Update
+		<button type="submit" name="filmId" value="${film.id }">Update
 			Film Information</button>
 	</form>
-	<form action="deleteFilm.do" method="POST">
-		<button type="submit" name="filmId" value="${film.filmId }">Delete
+	<form action="deleteFilm.do" method="GET">
+		<button type="submit" name="filmId" value="${film.id }">Delete
 			Film</button>
 	</form>
 
