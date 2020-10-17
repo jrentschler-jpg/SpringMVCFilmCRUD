@@ -46,7 +46,7 @@
 	
 	<input class="submit" type="submit" value="Submit"/>
 </form:form>
-<form action="confirmationPage.do" method="POST">
+<form action="addNewFilm.do" method="POST">
 </form>
 	 
 

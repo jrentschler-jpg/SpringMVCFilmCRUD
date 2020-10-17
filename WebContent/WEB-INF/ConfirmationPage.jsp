@@ -57,9 +57,9 @@
 		</c:when>
 	</c:choose>
 
-	<c:otherwise>
+<%-- 	<c:otherwise>
 		Error: No Film Found.
-	</c:otherwise>
+	</c:otherwise> --%>
 
 
 

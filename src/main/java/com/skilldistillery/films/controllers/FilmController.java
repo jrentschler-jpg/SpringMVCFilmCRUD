@@ -24,8 +24,9 @@ public class FilmController {
 	@RequestMapping(path="addNewFilm.do", method=RequestMethod.POST)
 	public String addFilmToDB(Film film, RedirectAttributes redir) {
 		DAO.createFilm(film);
+		System.out.println(film);
 		redir.addFlashAttribute("filmAdd", film);
-		return "redirect:filmEditAdded.do";
+		return "redirect:filmAdded.do";
 	}
 	
 	@RequestMapping(path = "filmAdded.do", method = RequestMethod.GET)
@@ -88,6 +89,10 @@ public class FilmController {
 	public ModelAndView SearchFilmResults(@RequestParam("Keyword")String input) {
 		List<Film> searchList =  DAO.findFilmsFromSearch(input);
 		ModelAndView mv = new ModelAndView();
+		for (Film film : searchList) {
+//			System.out.println(film);
+			mv.addObject("film", film);
+		}
 		mv.addObject("listFilms", searchList);
 		mv.setViewName("OneFilmSearchResult");
 		return mv;

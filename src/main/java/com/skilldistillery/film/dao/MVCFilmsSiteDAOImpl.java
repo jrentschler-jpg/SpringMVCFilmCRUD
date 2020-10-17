@@ -67,7 +67,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 			film.setFilmLength(filmResult.getInt("length"));
 			film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 			film.setRating(filmResult.getString("rating").toUpperCase());
-			film.setSpecialFeatures(filmResult.getString("special_features").toUpperCase());
+			film.setSpecialFeatures(filmResult.getString("special_features"));
 			film.setActors(findActorsByFilmId(filmResult.getInt("id")));
 		  }
 	} catch (SQLException e) {
@@ -380,6 +380,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 
 			  Film film = new Film(filmId, title, desc, releaseYear, lang,
 			                       rentDur, rate, length, repCost, rating, features, actors);
+			  System.out.println(film);
 			  films.add(film);
 			}
 			rs.close();
@@ -443,25 +444,26 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false);
 //			int filmId, String title, String description, int releaseYear, int langId, String language, int rentalDuration,
 //			double rentalRate, int length, double replacementCost, String rating, String specialFeatures
-		String sql = "INSERT INTO film(id, title, description, release_year, language_id, "
-				+ "rental_duration, rental_rate, length, "
-				+ "replacement_cost, rating, special_features) "
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?)";
+		String sql = "INSERT INTO film(title, description, release_year, language_id, "
+				+ "rental_duration, length, "
+				+ "replacement_cost, rating) "
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-		pst.setInt(1, newFilm.getId());
-		pst.setString(2, newFilm.getTitle());
-		pst.setString(3, newFilm.getDecsription());
-		pst.setInt(4, newFilm.getReleaseYear());
-		pst.setString(5, newFilm.getLanguage());
-		pst.setInt(6, newFilm.getRentalDuration());
-		pst.setDouble(7, newFilm.getRentalRate());
-		pst.setInt(8, newFilm.getFilmLength());
-		pst.setDouble(9, newFilm.getReplacementCost());
-		pst.setString(10, newFilm.getRating());
-		pst.setString(11, newFilm.getSpecialFeatures());
+//		pst.setInt(1, newFilm.getId());
+		pst.setString(1, newFilm.getTitle());
+		pst.setString(2, newFilm.getDecsription());
+		pst.setInt(3, newFilm.getReleaseYear());
+		pst.setInt(4, newFilm.getLanguageId());
+		pst.setInt(5, newFilm.getRentalDuration());
+//		pst.setDouble(7, newFilm.getRentalRate());
+		pst.setInt(6, newFilm.getFilmLength());
+		pst.setDouble(7, newFilm.getReplacementCost());
+		pst.setString(8, newFilm.getRating());
+//		pst.setString(11, newFilm.getSpecialFeatures());
 		
 		
 		int updateCount = pst.executeUpdate();
@@ -490,7 +492,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting film " + film.getTitle());
+//			throw new RuntimeException("Error inserting film " + film.getTitle());
 
 		}
 		return newFilm;
