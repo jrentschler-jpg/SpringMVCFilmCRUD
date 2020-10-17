@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Delete Film Results</title>
+</head>
+<body>
+	<h1>Delete Film Results</h1>
+	<c:out value="${filmId }" />
+	<c:if test="${empty film }">Film has been deleted</c:if>
+	<h2>Title: ${film.title }</h2>
+	<table>
+		<tr>
+			<td>Film ID:</td>
+			<td>${film.filmId }</td>
+
+		</tr>
+		<tr>
+			<td>Film Description:</td>
+			<td>${film.decsription }</td>
+
+		</tr>
+		<tr>
+			<td>Release Year:</td>
+			<td>${film.releaseYear }</td>
+
+		</tr>
+		<c:choose>
+			<c:when test="${film.languageId == 0}">
+				<tr>
+					<td>Language:</td>
+					<td>${film.language }</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td>Language ID:</td>
+					<td>${film.languageId }:</td>
+
+				</tr>
+			</c:otherwise>
+		</c:choose>
+		<tr>
+			<td>Rental Duration:</td>
+			<td>${film.rentalDuration }:</td>
+
+		</tr>
+		<tr>
+			<td>Rental Rate:</td>
+			<td>${film.rentalRate }:</td>
+
+		</tr>
+		<tr>
+			<td>Rental Length:</td>
+			<td>${film.filmLength }:</td>
+
+		</tr>
+		<tr>
+			<td>Replacement Cost:</td>
+			<td>${film.replacementCost }:</td>
+
+		</tr>
+		<tr>
+			<td>Rating:</td>
+			<td>${film.rating }</td>
+
+		</tr>
+		<tr>
+			<td>Special Features:</td>
+			<td>${film.specialFeatures }</td>
+
+		</tr>
+	</table>
+	<form action="getNewFilmInfo.do" method="GET">
+	<button type="submit" name="filmId" value="${film.filmId }">Update Film Information </button>
+	</form>
+	<form action="deleteFilm.do" method="POST">
+	<button type="submit" name="filmId" value="${film.filmId }">Delete Film</button>
+	</form>
+	
+	<br>
+	<br>
+	<p>
+	<a href="index.html" class="btn btn-secondary" role="button">Back to
+				Home</a>
+	</p>
+
+
+</body>
+</html>

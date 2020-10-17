@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Film Results</title>
 </head>
+<body>
 <h1>Search Film Results</h1>
 <c:choose>
 	<c:when test="${empty nofilm }">
@@ -27,8 +28,10 @@ Film ID:
 
 
 
-
-<body>
+<p>
+		<a href="index.html" class="btn btn-secondary" role="button">Back
+			to Home</a>
+	</p>
 
 </body>
 </html>
