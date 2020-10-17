@@ -15,7 +15,7 @@
 	<table>
 		<tr>
 			<td>Film ID:</td>
-			<td>${film.filmId }</td>
+			<td>${film.id }</td>
 
 		</tr>
 		<tr>
@@ -75,8 +75,8 @@
 		</tr>
 		<tr>
 			<td>Category:</td>
-			<td><c:if test="${empty film.findFilmsByCategory">No Category Found</c:if>
-				<c:if test="${not empty film.findFilmsByCategory }">${film.findFilmsByCategory }</c:if></td>
+			<td>${film.category}</td>
+				
 
 		</tr>
 		<tr>
