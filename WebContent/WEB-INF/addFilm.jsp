@@ -11,82 +11,42 @@
 <body>
 <h1>Add New Film</h1>
 <form:form action="addNewFilm.do" method="POST" modelAttribute="film">
-	<form:label path="title">Film Title:</form:label>
+	<form:label path="title">Film Title:</form:label><br>
+	<form:input class="input" path="title" placeholder="Enter the Title:"/>
+	<br>
+	<form:label path="decsription">Description:</form:label><br>
+	<form:input class="input" path="decsription" placeholder="Enter the Description:"/>
+	<br>
+	<form:label path="releaseYear">Release Year:</form:label><br>
+	<form:input class="input" path="realeaseYear" placeholder="Enter the Release Year:"/>
+	<br>
+	<form:label path="languageId">Language:</form:label><br>
+		<form:select path="languageId">Language:
+	<form:option value="1">English</form:option>
+			<form:option value="2">Italian</form:option>
+			<form:option value="3">Japanese</form:option>
+			<form:option value="4">Mandarin</form:option>
+			<form:option value="5">French</form:option>
+			<form:option value="6">German</form:option>
+		</form:select>
 
-
+		<br>
+	<form:label path="rentalDuration">Rental Duration:</form:label><br>
+	<form:input class="input" path="rentalDuration" placeholder="Enter the Rental Duration:"/>
+	<br>
+	<form:label path="filmLength">Film Length:</form:label><br>
+	<form:input class="input" path="filmLength" placeholder="Enter the Film Length:"/>
+	<br>
+	<form:label path="replacementCost">Replacement Cost:</form:label><br>
+	<form:input class="input" path="replacementCost" placeholder="Enter the Replacement Cost:"/>
+	<br>
+	<form:label path="rating">Rating:</form:label><br>
+	<form:input class="input" path="rating" placeholder="Enter the Rating:"/>
+	<br>
+	
+	<input class="submit" type="submit" value="Submit"/>
 </form:form>
-	<c:choose>
-		<c:when test="${! empty film }">
-			<h1>Film Created</h1>
-			<table>
-				<tr>
-					<td>Film ID:</td>
-					<td>${film.filmId }</td>
-				</tr>
-				<tr>
-					<td>Film Description:</td>
-					<td>${film.decsription }</td>
-
-				</tr>
-				<tr>
-					<td>Release Year:</td>
-					<td>${film.releaseYear }</td>
-
-				</tr>
-				<tr>
-					<td>Language:</td>
-					<td>${film.language }</td>
-				</tr>
-				<tr>
-					<td>Rental Duration:</td>
-					<td>${film.rentalDuration }:</td>
-
-				</tr>
-				<tr>
-					<td>Rental Rate:</td>
-					<td>${film.rentalRate }:</td>
-
-				</tr>
-				<tr>
-					<td>Rental Length:</td>
-					<td>${film.filmLength }:</td>
-
-				</tr>
-				<tr>
-					<td>Replacement Cost:</td>
-					<td>${film.replacementCost }:</td>
-
-				</tr>
-				<tr>
-					<td>Rating:</td>
-					<td>${film.rating }</td>
-
-				</tr>
-				<tr>
-					<td>Special Features:</td>
-					<td>${film.specialFeatures }</td>
-
-				</tr>
-				<tr>
-					<td>Category:</td>
-					<td><c:if test="${empty film.category">No Category Found</c:if>
-						<c:if test="${film.category }">${film.category }</c:if></td>
-
-				</tr>
-				<tr>
-					<td>Actors:</td>
-					<td><c:if test="${empty film.actors">No Actor Found</c:if>
-						<c:if test="${not empty film.actors }">${film.actors }</c:if></td>
-
-				</tr>
-
-			</table>
-		</c:when>
-	</c:choose>
-
-	<c:otherwise>
-		Error: No Film Found.
-	</c:otherwise>
+	
 
 
 
