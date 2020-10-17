@@ -17,7 +17,7 @@
 		<table>
 			<tr>
 				<td>Film ID:</td>
-				<td>${film.filmId }</td>
+				<td>${film.id }</td>
 
 			</tr>
 			<tr>
@@ -77,24 +77,24 @@
 			</tr>
 			<tr>
 				<td>Category:</td>
-				<td><c:if test="${empty film.category">No Category Found</c:if>
-					<c:if test="${not empty film.category }">${film.category }</c:if></td>
+				<td>${film.category }</td>
 
 			</tr>
 			<tr>
 				<td>Actors:</td>
-				<td><c:if test="${empty film.actors">No Actor Found</c:if> <c:if
+				<td><c:if test="${empty film.actors}">No Actor Found</c:if> 
+				<c:if
 						test="${not empty film.actors }">${film.actors }</c:if></td>
 
 			</tr>
 
 		</table>
 		<form action="getNewFilmInfo.do" method="GET">
-			<button type="submit" name="filmId" value="${film.filmId }">Update
+			<button type="submit" name="filmId" value="${film.id }">Update
 				Film Information</button>
 		</form>
 		<form action="deleteFilm.do" method="POST">
-			<button type="submit" name="filmId" value="${film.filmId }">Delete
+			<button type="submit" name="filmId" value="${film.id }">Delete
 				Film</button>
 		</form>
 	</c:if>
