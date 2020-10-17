@@ -1,5 +1,5 @@
 package com.skilldistillery.films.controllers;
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.MVCFilmsSiteDAOImpl;
-import com.skilldistillery.filmquery.app.EmployeeSearch;
-import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
-import com.skilldistillery.filmquery.entities.Actor;
-import com.skilldistillery.filmquery.entities.Film;
 @Controller
 public class FilmController {
 	@Autowired
@@ -21,7 +17,7 @@ public class FilmController {
 	@RequestMapping(path="index.do", method=RequestMethod.GET)
 	  public ModelAndView index() {
 	    ModelAndView mv = new ModelAndView();
-	    mv.setViewName("WEB-INF/home.jsp");
+	    mv.setViewName("WEB-INF/ListOfFilmsSearch.jsp");
 	    return mv;
 	  }
 }
