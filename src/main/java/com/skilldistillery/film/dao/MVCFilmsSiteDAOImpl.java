@@ -18,7 +18,7 @@ import com.skilldistillery.film.entities.Film;
 public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 
 	
-		private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+		private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		private static final String user = "student";
 		private static final String pass = "student";
 		

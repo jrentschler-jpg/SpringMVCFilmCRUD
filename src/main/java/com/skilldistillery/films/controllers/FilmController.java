@@ -32,6 +32,20 @@ public class FilmController {
 		mv.setViewName("OneFilmSearch");
 		return mv;
 	}
+	@RequestMapping(path="findFilmById.do", method=RequestMethod.GET)
+	public ModelAndView FilmbyID(@RequestParam("Film ID")int input) {
+		ModelAndView mv = new ModelAndView();
+		Film searchFilm = DAO.findFilmById(input);
+		System.out.println(input);
+		System.out.println(searchFilm);
+		mv.addObject("film", searchFilm);
+		mv.setViewName("ListOfFilmsSearch");
+		return mv;
+	}
+		
+		
+		
+		
 	@RequestMapping(path="getNewFilmInfo.do")
 	public ModelAndView newFilm() {
 		ModelAndView mv = new ModelAndView();
