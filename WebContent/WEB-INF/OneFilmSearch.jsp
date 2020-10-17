@@ -6,17 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Search Film Results</title>
+<title>Search Film By ID</title>
 </head>
 <body>
-<h1>Search Film Results</h1>
-<c:choose>
+<h1>Search Film By Film ID</h1>
+<%-- <c:choose>
 	<c:when test="${empty nofilm }">
 	<hr>
 	<strong>Sorry! Could NOT find anything with that ID.</strong>
 	</c:when>
-</c:choose>
-<p>
+</c:choose> --%>
+<p><!--  -->
 
 </p>
 <form action="findFilmById.do" method="GET">

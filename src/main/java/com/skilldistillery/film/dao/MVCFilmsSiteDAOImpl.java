@@ -311,16 +311,34 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 
 
 	@Override
-	public List<Film> findFilmsByCategory(String userGenre) {
-		List<Film> films = new ArrayList<>();
-		    String sql = "SELECT film.*, language.* FROM film "
-		    		+ "JOIN language on film.language_id = language.id "
-		    		+ "JOIN film_category on film_category.film_id = film.id "
-		    		+ "JOIN category on film_category.category_id = category.id "
-		    		+ "WHERE category.name LIKE '%' ? '%' ";
-		    films = getListOfFilmsForStringSearchReturn(films, sql, userGenre);
-		  return films;
-		}
+	public String findCategoryByFilmID(int id) {
+		String category = null;
+		    String sql = "SELECT category.* FROM category "
+		    		+ "JOIN film_category on film_category.category_id = category.id "
+		    		+ "JOIN film on film_category.film_id = film.id "
+		    		+ "WHERE film.id = ? ";
+			 try {
+					Connection conn = DriverManager.getConnection(URL, user, pass);
+					PreparedStatement stmt = conn.prepareStatement(sql);
+					stmt.setInt(1, id);
+				
+					ResultSet rs = stmt.executeQuery();
+					while (rs.next()) {
+					category = rs.getString("name");
+						
+
+					}
+					rs.close();
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println("WE ARE SORRY, WE COULDN'T FIND ANY FILMS FOR THAT SEARCH\n");
+				}
+			 return category;
+	}
+		    
+		    
+		    
 
 
 

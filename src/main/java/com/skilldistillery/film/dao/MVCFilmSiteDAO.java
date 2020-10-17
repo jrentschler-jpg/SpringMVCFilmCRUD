@@ -22,8 +22,9 @@ public interface MVCFilmSiteDAO {
 	  public Film findFilmByInventoryID(int inventoryId);
 	  public Film getOneFilmFromIDNumber(String sql, int iDNumber, Film film);
 	List<Film> findFilmsFromSearch(String userSearch);
-	List<Film> findFilmsByCategory(String userGenre);
+//	List<Film> findCategoryFilmID(String userGenre);
 	Film createFilm(Film film);
 	boolean deleteFilm(int filmId);
+	String findCategoryByFilmID(int id);
 
 }
