@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -413,5 +414,96 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		  film = getOneFilmFromIDNumber(sql, inventoryId, film);
 		  return film;
 	}
+	
+
+	@Override
+	public Film createFilm(Film film) {
+		Film newFilm = film;
+		Connection conn = null;
+		
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+//			int filmId, String title, String description, int releaseYear, int langId, String language, int rentalDuration,
+//			double rentalRate, int length, double replacementCost, String rating, String specialFeatures
+		String sql = "INSERT INTO film(id, title, description, release_year, language_id, "
+				+ "rental_duration, rental_rate, length, "
+				+ "replacement_cost, rating, special_features) "
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?)";
+		
+		PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		pst.setInt(1, newFilm.getId());
+		pst.setString(2, newFilm.getTitle());
+		pst.setString(3, newFilm.getDecsription());
+		pst.setInt(4, newFilm.getReleaseYear());
+		pst.setString(5, newFilm.getLanguage());
+		pst.setInt(6, newFilm.getRentalDuration());
+		pst.setDouble(7, newFilm.getRentalRate());
+		pst.setInt(8, newFilm.getFilmLength());
+		pst.setDouble(9, newFilm.getReplacementCost());
+		pst.setString(10, newFilm.getRating());
+		pst.setString(11, newFilm.getSpecialFeatures());
+		
+		
+		int updateCount = pst.executeUpdate();
+		System.out.println(updateCount + " film was created.");
+		ResultSet keys = pst.getGeneratedKeys();
+		
+//		if (updateCount == 1) {
+//			ResultSet keys = pst.getGeneratedKeys();
+			if (keys.next()) {
+				int newFilmId = keys.getInt(1);
+				newFilm.setId(newFilmId);
+			}
+			keys.close();
+//		}
+		
+		conn.commit();
+//		pst.close();
+		conn.close();
+		
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			throw new RuntimeException("Error inserting film " + film.getTitle());
+
+		}
+		return newFilm;
+	}
+	
+	@Override 
+	public boolean deleteFilm(int filmId) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "DELETE FROM film WHERE film.id = ?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, filmId);
+			int updateCount = pst.executeUpdate();
+			System.out.println(updateCount + " film was deleted.");
+			conn.commit(); // COMMIT TRANSACTION
+			
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return false;
+		}
+		return true;
+		
+	}
+		
 
 }
