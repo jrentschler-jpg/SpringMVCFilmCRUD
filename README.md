@@ -1,8 +1,23 @@
-## ![Logo](http://skilldistillery.com/downloads/sd_logo.jpg) Aaron Cottrell, Jourdan Rentschler & David Daniels
+<img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg">
+
+##### Aaron Cottrell &nbsp;Jourdan Rentschler &nbsp;David Daniels
+<br>
+
 # Spring MVC Film C.R.U.D. Project
 
-This is the readme...I am making a small change.
+## Overview
 
-I am again making sure this is going to the right branch now again -Aaron
 
-trying again... -David
+## Step by Step (Short Version)
+
+
+## Walkthrough (Long Version)
+
+
+## Struggles
+
+
+## Lessons Learned
+
+
+## New Course Material
