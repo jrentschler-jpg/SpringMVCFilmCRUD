@@ -74,16 +74,23 @@
 
 		</tr>
 		<tr>
+		<c:choose>
+		<c:when test="${! empty film.category }">
 			<td>Category:</td>
 			<td>${film.category}</td>
-				
+</c:when>
+<c:otherwise>
+<td>Category:</td>
+<td>No Category</td>
+</c:otherwise>				
+		</c:choose>
 
 		</tr>
 		<tr>
 			<td>Actors:</td>
 			<td><c:if test="${empty film.actors}">No Actor Found</c:if> 
 			<c:if
-					test="${not empty film.actors }">${film.actors }</c:if></td>
+					test="${not empty actors }">${actors }</c:if></td>
 
 		</tr>
 	</table>
