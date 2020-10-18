@@ -81,7 +81,7 @@
 			<form:checkbox path="specialFeatures" value="Commentaries" />Commentary<br>
 			<form:checkbox path="specialFeatures" value="Behind the Scenes" />Behind the Scenes<br>
 			<form:checkbox path="specialFeatures" value="Deleted Scenes" />Deleted Scenes<br>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" name="filmToUpdate" value="${film.id }">Submit</button>
 			<!-- <input type="submit"> -->
 		</form:form>
 
