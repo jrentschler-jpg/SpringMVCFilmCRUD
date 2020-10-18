@@ -526,6 +526,74 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		return true;
 		
 	}
+
+@Override
+	public Film updateFilm(Film film) {
+	
+	Connection conn = null;
+	
+	try {
+		conn = DriverManager.getConnection(URL, user, pass);
+		conn.setAutoCommit(false);
+//		int filmId, String title, String description, int releaseYear, int langId, String language, int rentalDuration,
+//		double rentalRate, int length, double replacementCost, String rating, String specialFeatures
+	String sql = "INSERT INTO film(title, description, release_year, language_id, "
+			+ "rental_duration, length, "
+			+ "replacement_cost, rating) "
+			+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	
+	PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	
+//	pst.setInt(1, newFilm.getId());
+	pst.setString(1, film.getTitle());
+	pst.setString(2, film.getDecsription());
+	pst.setInt(3, film.getReleaseYear());
+	pst.setInt(4, film.getLanguageId());
+	pst.setInt(5, film.getRentalDuration());
+	pst.setDouble(7, film.getRentalRate());
+	pst.setInt(6, film.getFilmLength());
+	pst.setDouble(7, film.getReplacementCost());
+	pst.setString(8, film.getRating());
+	pst.setString(11, film.getSpecialFeatures());
+	
+	
+	int updateCount = pst.executeUpdate();
+	System.out.println(updateCount + " film was updated.");
+	ResultSet keys = pst.getGeneratedKeys();
+	
+	if (updateCount != 1) {
+		film = null;
+		System.out.println("film is null");
+//		ResultSet keys = pst.getGeneratedKeys();
+//		if (keys.next()) {
+	//		int newFilmId = keys.getInt(1);
+	//		film.setId(newFilmId);
+		}
+		keys.close();
+//	}
+	
+	conn.commit();
+//	pst.close();
+	conn.close();
+	
+//	}
+	
+	} catch (SQLException sqle) {
+		sqle.printStackTrace();
+		if (conn != null) {
+			try {
+				conn.rollback();
+			} catch (SQLException sqle2) {
+				System.err.println("Error trying to rollback");
+			}
+		}
+//		throw new RuntimeException("Error inserting film " + film.getTitle());
+
+	}
+	return film;
+}
+
+		
 		
 
 }

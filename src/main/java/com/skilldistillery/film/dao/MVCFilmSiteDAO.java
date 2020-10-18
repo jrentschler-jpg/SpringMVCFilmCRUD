@@ -26,5 +26,6 @@ public interface MVCFilmSiteDAO {
 	Film createFilm(Film film);
 	boolean deleteFilm(int filmId);
 	String findCategoryByFilmID(int id);
+	public Film updateFilm(Film film);
 
 }

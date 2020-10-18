@@ -97,6 +97,26 @@ public class FilmController {
 		mv.setViewName("OneFilmSearchResult");
 		return mv;
 	}
+	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
+	public ModelAndView updateFilm(Film film) {
+		Film updatedFilm = DAO.updateFilm(film);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("updatedFilm", updatedFilm);
+		mv.setViewName("Update");
+		return mv;
+	}
+	@RequestMapping(path="Update.do", method=RequestMethod.GET)
+	  public ModelAndView Update() {
+	    ModelAndView mv = new ModelAndView();
+	    mv.addObject(new Film());
+	    mv.setViewName("Update");
+	    return mv;
+	  }
+	
+	
+	
+	
 }
 //	private boolean menuSwitch() {
 //boolean keepGoing = true;
