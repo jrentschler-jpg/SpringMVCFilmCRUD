@@ -504,7 +504,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "DELETE FROM film WHERE film.id = ?";
+			String sql = "DELETE * FROM film WHERE film.id = ?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, filmId);
 			int updateCount = pst.executeUpdate();

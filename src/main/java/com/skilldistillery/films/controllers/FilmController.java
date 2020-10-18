@@ -80,6 +80,19 @@ public class FilmController {
 		mv.setViewName("DeleteFilm");
 		return mv;
 	}
+	
+	@RequestMapping(path="confirmFilmDelete", method=RequestMethod.POST)
+	public ModelAndView confirmDelete(@RequestParam("filmId")int filmId) {
+		ModelAndView mv = new ModelAndView();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping(path="SearchKeyword.do")
 	public ModelAndView SearchKeyword() {
 		ModelAndView mv = new ModelAndView();
