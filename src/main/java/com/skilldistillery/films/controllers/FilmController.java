@@ -106,12 +106,12 @@ public class FilmController {
 	public ModelAndView SearchFilmResults(@RequestParam("Keyword")String input) {
 		List<Film> searchList =  DAO.findFilmsFromSearch(input.toUpperCase());
 		ModelAndView mv = new ModelAndView();
-		for (Film film : searchList) {
-//			System.out.println(film);
-			mv.addObject("film", film);
-		}
-		mv.addObject("listFilms", searchList);
-		mv.setViewName("OneFilmSearchResult");
+//		for (Film film : searchList) {
+////			System.out.println(film);
+//			mv.addObject("film", film);
+//		}
+		mv.addObject("films", searchList);
+		mv.setViewName("ListFilmSearchResult");
 		return mv;
 	}
 	@RequestMapping(path="getNewFilmInfo.do", method=RequestMethod.GET)
