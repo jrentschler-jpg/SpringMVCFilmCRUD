@@ -538,9 +538,9 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 //		int filmId, String title, String description, int releaseYear, int langId, String language, int rentalDuration,
 //		double rentalRate, int length, double replacementCost, String rating, String specialFeatures
 	String sql = "UPDATE film(title, description, release_year, language_id, "
-			+ "rental_duration, length, "
-			+ "replacement_cost, rating) "
-			+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?) where film.id = ?";
+			+ "rental_duration, rental_rate, length, "
+			+ "replacement_cost, rating, special_features) "
+			+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) where film.id = ?";
 	
 	PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	
@@ -550,11 +550,11 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 	pst.setInt(3, film.getReleaseYear());
 	pst.setInt(4, film.getLanguageId());
 	pst.setInt(5, film.getRentalDuration());
-	pst.setDouble(7, film.getRentalRate());
-	pst.setInt(6, film.getFilmLength());
-	pst.setDouble(7, film.getReplacementCost());
-	pst.setString(8, film.getRating());
-	pst.setString(11, film.getSpecialFeatures());
+	pst.setDouble(6, film.getRentalRate());
+	pst.setInt(7, film.getFilmLength());
+	pst.setDouble(8, film.getReplacementCost());
+	pst.setString(9, film.getRating());
+	pst.setString(10, film.getSpecialFeatures());
 	
 	
 	int updateCount = pst.executeUpdate();
