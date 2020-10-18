@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Search Keyword</title>
 </head>
-<body>
+<body style="background-color:LavenderBlush;">
 <h1>Search Film Library</h1>
 <form action="results.do" method="GET">
  

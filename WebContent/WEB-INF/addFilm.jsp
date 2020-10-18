@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add New Film</title>
 </head>
-<body>
+<body style="background-color:LightGray;">
 <h1>Add New Film</h1>
 <form:form action="addNewFilm.do" method="POST" modelAttribute="film">
 	<form:label path="title">Film Title:</form:label><br>

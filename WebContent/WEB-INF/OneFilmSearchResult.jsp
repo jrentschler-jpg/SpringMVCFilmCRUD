@@ -80,15 +80,23 @@
 				<td>${film.category }</td>
 
 			</tr>
+			
 			<tr>
 				<td>Actors:</td>
-				<td><c:if test="${empty film.actors}">No Actor Found</c:if> 
-				<c:if
-						test="${not empty film.actors }">${film.actors }</c:if></td>
-
+				<td><c:if test="${empty film.actors}">No Actor Found</c:if>
+			<%-- 	<c:if
+						test="${not empty film.actors }">${film.actors }</c:if></td> --%>
+				<c:forEach var="actor" items="${film.actors }">
+				
+			
+				<td>Actor ID: ${actor.id } <br> Name: ${actor.firstName } ${actor.lastName }</td>
 			</tr>
 
+</c:forEach>
+
 		</table>
+		
+		
 		<form action="getNewFilmInfo.do" method="GET">
 			<button type="submit" name="filmId" value="${film.id }">Update
 				Film Information</button>
