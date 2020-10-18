@@ -537,10 +537,10 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		conn.setAutoCommit(false);
 //		int filmId, String title, String description, int releaseYear, int langId, String language, int rentalDuration,
 //		double rentalRate, int length, double replacementCost, String rating, String specialFeatures
-	String sql = "INSERT INTO film(title, description, release_year, language_id, "
+	String sql = "UPDATE film(title, description, release_year, language_id, "
 			+ "rental_duration, length, "
 			+ "replacement_cost, rating) "
-			+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+			+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?) where film.id = ?";
 	
 	PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	
