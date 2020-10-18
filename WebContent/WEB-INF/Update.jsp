@@ -84,6 +84,13 @@
 			<button type="submit" name="filmToUpdate" value="${film.id }">Submit</button>
 			<!-- <input type="submit"> -->
 		</form:form>
+		<form action="editFilm.do" method="POST">
+</form>
+		
+		<p>
+		<a href="index.html" class="btn btn-secondary" role="button">Back
+			to Home</a>
+	</p>
 
 
 </body>
