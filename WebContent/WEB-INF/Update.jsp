@@ -22,25 +22,25 @@
 			<br>
 			Title:<form:input path="title" value="${film.title }" />
 			<br>
-			Description:<form:input path="description"
-				value="${film.description }" />
+			Description:<form:input path="decsription"
+				value="${film.decsription }" />
 			<br> 
-			Release Year:<form:input path="release_year"
-				value="${film.release_year }" />
-			<form:errors path="release_year" />
+			Release Year:<form:input path="releaseYear"
+				value="${film.releaseYear }" />
+			<form:errors path="releaseYear" />
 			<br>
-			Rental Duration:<form:input path="rental_duration"
-				value="${filmrental_duration }" />
+			Rental Duration:<form:input path="rentalDuration"
+				value="${film.rentalDuration }" />
 			<br> 
-			Rental Rate:<form:input path="rental_rate"
-				value="${film.rental_rate }" />
+			Rental Rate:<form:input path="rentalRate"
+				value="${film.rentalRate }" />
 			<br>
-			Length:<form:input path="length" value="${film.length }" />
+			Length:<form:input path="filmLength" value="${film.filmLength }" />
 			<br>
-			Replacement Cost:<form:input path="replacement_cost"
-				value="${film.replacement_cost }" />
+			Replacement Cost:<form:input path="replacementCost"
+				value="${film.replacementCost }" />
 			<br>
-			Language:   <form:select path="language_id">
+			Language:   <form:select path="languageId">
 				<option value="1">English</option>
 				<option value="2">Italian</option>
 				<option value="3">Japanese</option>
@@ -57,7 +57,7 @@
 				<option value="NC17">NC-17</option>
 			</form:select>
 			<br>
-			Categories:  <form:select path="categoryId">
+			Categories:  <form:select path="category">
 				<option value="1">Action</option>
 				<option value="2">Animation</option>
 				<option value="3">Children</option>
@@ -77,10 +77,10 @@
 			</form:select>
 			<br>
 			Special Features:<br>
-			<form:checkbox path="special_features" value="Trailers" />Trailers<br>
-			<form:checkbox path="special_features" value="Commentaries" />Commentary<br>
-			<form:checkbox path="special_features" value="Behind the Scenes" />Behind the Scenes<br>
-			<form:checkbox path="special_features" value="Deleted Scenes" />Deleted Scenes<br>
+			<form:checkbox path="specialFeatures" value="Trailers" />Trailers<br>
+			<form:checkbox path="specialFeatures" value="Commentaries" />Commentary<br>
+			<form:checkbox path="specialFeatures" value="Behind the Scenes" />Behind the Scenes<br>
+			<form:checkbox path="specialFeatures" value="Deleted Scenes" />Deleted Scenes<br>
 			<button type="submit" class="btn btn-primary">Submit</button>
 			<!-- <input type="submit"> -->
 		</form:form>

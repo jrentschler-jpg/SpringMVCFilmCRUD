@@ -84,6 +84,9 @@ public class FilmController {
 	@RequestMapping(path="confirmFilmDelete", method=RequestMethod.POST)
 	public ModelAndView confirmDelete(@RequestParam("filmId")int filmId) {
 		ModelAndView mv = new ModelAndView();
+		DAO.deleteFilm(filmId);
+		mv.setViewName("Confirmation");
+		return mv;
 		
 		
 	}
@@ -111,12 +114,23 @@ public class FilmController {
 		mv.setViewName("OneFilmSearchResult");
 		return mv;
 	}
-	@RequestMapping(path="updateFilm.do", method= RequestMethod.POST)
-	public ModelAndView updateFilm(@RequestParam("filmToUpdate")Film film, RedirectAttributes redir) {
+	@RequestMapping(path="getNewFilmInfo.do", method=RequestMethod.GET)
+	  public ModelAndView updateFilm(@RequestParam("filmId") int filmId) {
+	    ModelAndView mv = new ModelAndView();
+	    mv.addObject("film", DAO.findFilmById(filmId));
+	    mv.setViewName("Update");
+	    return mv;
+	  }
+	
+	
+	
+	
+	@RequestMapping(path="editFilm.do", method= RequestMethod.POST)
+	public ModelAndView updatedFilm(@RequestParam("filmToUpdate")Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		Film updatedFilm = DAO.updateFilm(film);
 		
-		redir.addFlashAttribute("filmUpdated", film);
+		redir.addFlashAttribute("film", updatedFilm);
 		mv.setViewName("redirect:Update.do");
 		return mv;
 	}
