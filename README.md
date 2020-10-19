@@ -17,6 +17,21 @@ Use SpringMVC to interact with MYSQL database on a hosted site.
 6. Confirmation of user action
 
 ## Walkthrough (Long Version)
+On initial site launch, the user is prompted to specify whether to Add or Search a Film.
+
+Adding a film is fairly straightforward as there needs to only be a minimum entry of Title to "in theory" create a film entry. When an entry is successfully input. The user is navigated via re-route to avoid duplicate submission to a confirmation page.
+
+The Film ID Search page allows for more pinpoint search results. A user will have the ability to search by Film ID. If a film is identified in the database all film and actor information is displayed.
+
+The Search By Keyword page will move the program into the prompt for search keyword. The program will then create a search algorithm from the user input which allows the program to sift through the database for matching data from the film title and description. If no data is matched in the search, the program will display that no results were found. If one or more films matched with the search the film will be displayed with associated details. The program will also keep a count of the number of search results returned.
+
+Once the search has completed the user may choose to search again, update or delete a displayed film from the search results.
+
+Choosing to update a given entry will navigate to an update page where entry fields are automatically populated and the user is able to manage each field as they wish. Upon successful update the user is navigated to a confirmation screen.
+
+
+
+
 
 
 ## Struggles
@@ -31,6 +46,8 @@ It also really gave us more exposure of the start to finish process of building 
 
 ####Aaron Cottrell:
 Working with GET and POST Methods within the Controller. Knowing when to request a parameter and when not to. So many small details to get wrong at this point. Errors and more errors. Time Zone for the SSL statement one was a doozy. I am still pretty hopeless when it comes to HTML formatting so thank goodness for Jourdan & David working on those parts of the JSP files for us and at least now I have some templates to work off of. UML-like planning probably would have been helpful. We probably also could have benefitted from writing J-unit test methods so that we didn't need to test the site on server over and over again. I'm still not really sure on how to write those tests when the return is a ModelandView object.
+
+Getting a fully working site took longer than normal but there was so much to work through. I know all of us had more ideas for functionality that got set aside due to the amount of time it took us to get through the end of the main user stories.
 
 
 ####David Daniels:
