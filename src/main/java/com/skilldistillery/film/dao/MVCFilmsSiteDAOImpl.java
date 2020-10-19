@@ -538,7 +538,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, film.getTitle());
 		stmt.setString(2, film.getDecsription());
-		stmt.setInt(3, film.getReleaseYear());
+		stmt.setShort(3, film.getReleaseYear());
 		stmt.setInt(4, film.getLanguageId());
 		stmt.setInt(5, film.getRentalDuration());
 		stmt.setDouble(6, film.getRentalRate());
