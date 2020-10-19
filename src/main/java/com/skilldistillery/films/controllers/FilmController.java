@@ -108,6 +108,10 @@ public class FilmController {
 	public ModelAndView SearchFilmResults(@RequestParam("Keyword")String input) {
 		List<Film> searchList =  DAO.findFilmsFromSearch(input.toUpperCase());
 		ModelAndView mv = new ModelAndView();
+		for (Film film : searchList) {
+			film.setCategory(DAO.findCategoryByFilmID(film.getId()));
+		}
+			
 //		for (Film film : searchList) {
 ////			System.out.println(film);
 //			mv.addObject("film", film);

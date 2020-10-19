@@ -349,32 +349,32 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		List<Film> films = new ArrayList<>();
 	    String sql = "SELECT DISTINCT film.*, language.* FROM film "
 	    		+ "JOIN language on film.language_id = language.id "
-	    		+ "JOIN film_category on film_category.film_id = film.id "
-	    		+ "JOIN category on film_category.category_id = category.id "
-	    		+ "JOIN film_actor on film.id = film_actor.film_id "
-	    		+ "JOIN actor on actor.id = film_actor.actor_id "
-	    		+ "WHERE category.name LIKE '%' ? '%' "
-	    		+ "OR concat(actor.first_name,' ', actor.last_name) LIKE '%' ? '%'"
-	    		+ "OR film.title LIKE '%' ? '%' ";
+//	    		+ "JOIN film_category on film_category.film_id = film.id "
+//	    		+ "JOIN category on film_category.category_id = category.id "
+//	    		+ "JOIN film_actor on film.id = film_actor.film_id "
+//	    		+ "JOIN actor on actor.id = film_actor.actor_id "
+////	    		+ "WHERE category.name LIKE '%' ? '%' "
+//	    		+ "OR concat(actor.first_name,' ', actor.last_name) LIKE '%' ? '%'"
+	    		+ "WHERE film.title LIKE '%' ? '%' ";
 		 try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, userSearch);
-			stmt.setString(2, userSearch);
-			stmt.setString(3, userSearch);
+//			stmt.setString(2, userSearch);
+//			stmt.setString(3, userSearch);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				int filmId = rs.getInt("id");
-				String title = rs.getString("title").toUpperCase();
-				String desc = rs.getString("description").toUpperCase();
+				String title = rs.getString("title");
+				String desc = rs.getString("description");
 				short releaseYear = rs.getShort("release_year");
-				String lang = rs.getString("name").toUpperCase();
+				String lang = rs.getString("name");
 				int rentDur = rs.getInt("rental_duration");
 				double rate = rs.getDouble("rental_rate");
 				int length = rs.getInt("length");
 				double repCost = rs.getDouble("replacement_cost");
-				String rating = rs.getString("rating").toUpperCase();
-				String features = rs.getString("special_features").toUpperCase();
+				String rating = rs.getString("rating");
+				String features = rs.getString("special_features");
 				List<Actor> actors = findActorsByFilmId(filmId);
 				
 
@@ -386,7 +386,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 			System.out.println("WE ARE SORRY, WE COULDN'T FIND ANY FILMS FOR THAT SEARCH\n");
 		}
 	  return films;
