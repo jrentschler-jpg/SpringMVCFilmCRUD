@@ -19,6 +19,10 @@
 					<td>${film.id }</td>
 				</tr>
 				<tr>
+					<td>Film Title:</td>
+					<td>${film.title }</td>
+				</tr>
+				<tr>
 					<td>Film Description:</td>
 					<td>${film.decsription }</td>
 
@@ -34,18 +38,18 @@
 				</tr>
 				<tr>
 					<td>Rental Duration:</td>
-					<td>${film.rentalDuration }:</td>
+					<td>${film.rentalDuration }</td>
 
 				</tr>
 				
 				<tr>
 					<td>Rental Length:</td>
-					<td>${film.filmLength }:</td>
+					<td>${film.filmLength }</td>
 
 				</tr>
 				<tr>
 					<td>Replacement Cost:</td>
-					<td>${film.replacementCost }:</td>
+					<td>${film.replacementCost }</td>
 
 				</tr>
 				<tr>

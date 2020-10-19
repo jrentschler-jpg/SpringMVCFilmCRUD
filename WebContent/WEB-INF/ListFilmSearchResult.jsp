@@ -45,29 +45,29 @@
 				<c:otherwise>
 					<tr>
 						<td>Language ID:</td>
-						<td>${film.languageId }:</td>
+						<td>${film.languageId }</td>
 
 					</tr>
 				</c:otherwise>
 			</c:choose>
 			<tr>
 				<td>Rental Duration:</td>
-				<td>${film.rentalDuration }:</td>
+				<td>${film.rentalDuration }</td>
 
 			</tr>
 			<tr>
 				<td>Rental Rate:</td>
-				<td>${film.rentalRate }:</td>
+				<td>${film.rentalRate }</td>
 
 			</tr>
 			<tr>
 				<td>Rental Length:</td>
-				<td>${film.filmLength }:</td>
+				<td>${film.filmLength }</td>
 
 			</tr>
 			<tr>
 				<td>Replacement Cost:</td>
-				<td>${film.replacementCost }:</td>
+				<td>${film.replacementCost }</td>
 
 			</tr>
 			<tr>
