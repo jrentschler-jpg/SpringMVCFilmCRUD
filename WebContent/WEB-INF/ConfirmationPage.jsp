@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add New Film</title>
+<title>Delete Film Results</title>
 </head>
-<body>
+<body style="background-color:GREENYELLOW;">
 	<c:choose>
 		<c:when test="${! empty film }">
 			<h1>Film Newly Created</h1>
@@ -55,12 +55,14 @@
 
 			</table>
 		</c:when>
+ 	<c:otherwise>
+ 	<br>
+		<h3>This film has successfully been deleted!!</h3> 
+	</c:otherwise> 
+		
 	</c:choose>
 
-<%-- 	<c:otherwise>
-		Error: No Film Found.
-	</c:otherwise> --%>
-
+<br>
 
 
 	<p>

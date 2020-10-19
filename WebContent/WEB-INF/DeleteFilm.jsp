@@ -10,13 +10,6 @@
 <body>
 	<h1>Delete Film Results</h1>
 	<br>
-		<form action="confirmFilmDelete.do" method="POST">
-	<strong>Please enter film ID to confirm film deleted:</strong><br>
-	<input class="input" min="1001" type="number" name="filmId">
-		<button type="submit" name="filmId" value="${film.id }">Delete
-			Film</button>
-	</form>
-	<br>
 	
 	<c:out value="${filmId }" />
 	<c:if test="${empty film }">Film has been deleted</c:if>
@@ -110,12 +103,13 @@
 			Film Information</button>
 	</form>
 	<br>
-<%-- 	<form action="deleteFilm.do" method="POST">
+	<form action="confirmFilmDelete.do" method="POST">
 	<strong>Please enter film ID to confirm film deleted:</strong><br>
 	<input class="input" min="1001" type="number" name="filmId">
 		<button type="submit" name="filmId" value="${film.id }">Delete
 			Film</button>
-	</form> --%>
+	</form>
+	<br>
 
 	<br>
 	<br>
