@@ -54,7 +54,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film searchFilm = DAO.findFilmById(input);
 		searchFilm.setCategory(DAO.findCategoryByFilmID(searchFilm.getId()));
-		System.out.println(searchFilm.getCategory());
+//		System.out.println(searchFilm.getCategory());
 //		System.out.println(input);
 //		System.out.println(searchFilm);
 		mv.addObject("film", searchFilm);
@@ -85,7 +85,7 @@ public class FilmController {
 	public ModelAndView confirmDelete(@RequestParam("filmId")int filmId) {
 		ModelAndView mv = new ModelAndView();
 		DAO.deleteFilm(filmId);
-		mv.setViewName("Confirmation");
+		mv.setViewName("ConfirmationPage");
 		return mv;
 		
 		
