@@ -53,11 +53,12 @@ public class FilmController {
 	public ModelAndView FilmbyID(@RequestParam("Film ID")int input) {
 		ModelAndView mv = new ModelAndView();
 		Film searchFilm = DAO.findFilmById(input);
+		if(searchFilm != null) {
 		searchFilm.setCategory(DAO.findCategoryByFilmID(searchFilm.getId()));
 //		System.out.println(searchFilm.getCategory());
 //		System.out.println(input);
 //		System.out.println(searchFilm);
-		mv.addObject("film", searchFilm);
+		mv.addObject("film", searchFilm);}
 		mv.setViewName("OneFilmSearchResult");
 		return mv;
 	}
