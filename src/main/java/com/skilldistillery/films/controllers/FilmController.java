@@ -25,14 +25,14 @@ public class FilmController {
 	public String addFilmToDB(Film film, RedirectAttributes redir) {
 		DAO.createFilm(film);
 //		System.out.println(film);
-		redir.addFlashAttribute("filmAdd", film);
+		redir.addFlashAttribute("film", film);
 		return "redirect:filmAdded.do";
 	}
 	
-	@RequestMapping(path = "filmAdded.do", method = RequestMethod.GET)
+	@RequestMapping(path="filmAdded.do", method = RequestMethod.GET)
 	public ModelAndView filmAdded() {
 		ModelAndView mv = new ModelAndView();
-	
+
 		mv.setViewName("ConfirmationPage");
 		return mv;
 	}
@@ -86,7 +86,8 @@ public class FilmController {
 	public ModelAndView confirmDelete(@RequestParam("filmId")int filmId) {
 		ModelAndView mv = new ModelAndView();
 		DAO.deleteFilm(filmId);
-		mv.setViewName("ConfirmationPage");
+//		mv.setViewName("ConfirmationPage");
+		mv.setViewName("DeleteFilmResult");
 		return mv;
 		
 		

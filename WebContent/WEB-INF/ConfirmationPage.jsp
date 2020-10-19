@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Delete Film Results</title>
+<title>Film Results</title>
 </head>
-<body style="background-color:GREENYELLOW;">
+<body>
+<!-- <body style="background-color:GREENYELLOW;"> -->
 	<c:choose>
 		<c:when test="${! empty film }">
 			<h1>Film Newly Created</h1>
@@ -55,12 +56,11 @@
 
 			</table>
 		</c:when>
- 	<c:otherwise>
- 	<br>
-		<h3>This film has successfully been deleted!!</h3> 
-	</c:otherwise> 
+ 	
+
 		
 	</c:choose>
+	
 
 <br>
 
