@@ -6,10 +6,15 @@
 # Spring MVC Film C.R.U.D. Project
 
 ## Overview
-Use SpringMVC to interact with MYSQL database on a
+Use SpringMVC to interact with MYSQL database on a hosted site.
 
 ## Step by Step (Short Version)
-
+1. Landing Page index.html
+2. Choose desired option from button list
+3. Fill in search or new input information
+4. View search results
+5. Option to edit/delete returned information.
+6. Confirmation of user action
 
 ## Walkthrough (Long Version)
 
@@ -25,6 +30,7 @@ Seeing how important the Controller and the DAOImpl is all incorporated was real
 It also really gave us more exposure of the start to finish process of building an application. A lot of moving parts and that previous week we learned a lot of information so I felt a little nervous on this project because I wasn't sure we would have a lot of time. The other thing i struggled with was figuring out who was going to do what... trying to break it down by user story or by front end, back end work.
 
 ####Aaron Cottrell:
+Working with GET and POST Methods within the Controller. Knowing when to request a parameter and when not to. So many small details to get wrong at this point. Errors and more errors. Time Zone for the SSL statement one was a doozy. I am still pretty hopeless when it comes to HTML formatting so thank goodness for Jourdan & David working on those parts of the JSP files for us and at least now I have some templates to work off of. UML-like planning probably would have been helpful. We probably also could have benefitted from writing J-unit test methods so that we didn't need to test the site on server over and over again. I'm still not really sure on how to write those tests when the return is a ModelandView object.
 
 
 ####David Daniels:
@@ -40,10 +46,14 @@ Some lessons learned were that git can be a bit annoying when working with multi
 Learned a lot about how all of the different files work together. How the DAOImpl, Controller, and jsp's all come together was just kind of reinforced on this project. I am still struggling with communicating my ideas that are in my head into words as to explain them to teammates. I can sit down and tinker with things and break them and make them work but communicating it into words is something I need to get better at.
 
 ####Aaron Cottrell:
-
+I learned a lot about certain Stacktrace errors and what they mean. They became easier and easier to fix as the project went along. Patience was big on this one. I'm used to being able to sit down and mash keys until the projects are complete. This was a step in waiting for someone else to get the changes in that you might need in order to test the connection. More real world. We managed to have a pretty good plan of attack on avoiding Git issues until the very end when David and I were both trying to fix an issue with the update sql statement and things got hairy on David's end for pulling due to a merge error we were unable to solve. As of submission time, we were still unable to get his side to pull but Jourdan and I still have push and pull capabilities so I think that's a win for the first collab project.
 
 ## New Course Material
 1. Gradle
 2. SpringMVC
 3. Github Group Collaboration
-4.
+4. JSP files
+5. Controllers
+6. Annotated DAO
+7. TOMCAT
+8. C.R.U.D
