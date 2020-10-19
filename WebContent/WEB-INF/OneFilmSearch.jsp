@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Film By ID</title>
 </head>
-<body>
+<body style="background-color:LIGHTCYAN;">
 <h1>Search Film By Film ID</h1>
 <%-- <c:choose>
 	<c:when test="${empty nofilm }">

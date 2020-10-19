@@ -2,16 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Films</title>
+<title>Film Query</title>
 </head>
 
+<!-- <body style="background-coloavender;"> -->
 <body style="background-color:Lavender;">
 
 <h1>Welcome to the Film Query</h1>
-<a href="OneFilmSearch.do">Search by Film ID</a>
-<br  />
-<a href="addFilm.do">Add a Film</a>
-<br />
-<a href="SearchKeyword.do">Search by Keyword</a>
+<!-- <a href="OneFilmSearch.do">Search by Film ID</a>
+<br  /> -->
+<form action="OneFilmSearch.do">
+<input type="submit" value="Search by Film ID"/>
+</form>
+<br      />
+<!-- <a href="addFilm.do">Add a Film</a>
+<br /> -->
+<form action="addFilm.do">
+<input type="submit" value="Add a Film"/>
+</form>
+<br      />
+<!-- <a href="SearchKeyword.do">Search by Keyword</a> -->
+<form action="SearchKeyword.do">
+<input type="submit" value="Search by Keyword"/>
+</form>
+<br      />
+
+
 </body>
 </html>
