@@ -527,14 +527,66 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		
 	}
 
-@Override
+	
+	
+	
+
+	
+//	public Film updateFilm(Film film) {
+//		System.out.println(film);
+//		String user = "student";
+//		String pw = "student";
+//		Connection conn = null;
+//		try {
+//			conn = DriverManager.getConnection(URL, user, pw);
+//			conn.setAutoCommit(false);
+//			String sql = "UPDATE film SET film.title = ?, film.description =? WHERE id = ?";
+//			PreparedStatement stmt = conn.prepareStatement(sql);
+//			stmt.setString(1, film.getTitle());
+//			stmt.setString(2, film.getDecsription());
+//			stmt.setInt(3, film.getId());
+//			int updateCount = stmt.executeUpdate();
+//			if (updateCount == 1) {
+//				System.out.println(film);
+//				conn.commit();
+//				stmt.close();
+//				conn.close();
+//			} else {
+//				System.out.println(updateCount);
+//				System.out.println("\n\n RIGHT BEFORE COMMIT\n\n");
+//				conn.rollback();
+//				stmt.close();
+//				conn.close();
+//			}
+//		} catch (SQLException e) {
+//			System.err.println("Error during inserts.");
+//			System.err.println("SQL Error: " + e.getErrorCode() + ": " + e.getMessage());
+//			System.err.println("SQL State: " + e.getSQLState());
+//			if (conn != null) {
+//				try {
+//					conn.rollback();
+//					conn.close();
+//				} catch (SQLException e1) {
+//					System.err.println("Error rolling back.");
+//					e1.printStackTrace();
+//				}
+//			}
+//		}
+//		
+//		return film;
+//	}
+//	
+	
+	
+	@Override
 	public Film updateFilm(Film film) {
+	film.setLanguageId(1);
 	Connection conn = null;
 	try {
 		conn = DriverManager.getConnection(URL, user, pass);
 		conn.setAutoCommit(false); // START TRANSACTION
 		String sql = "UPDATE film SET film.title=?, film.description=?, film.release_year=?, film.language_id=?, film.rental_duration=?, "
-				+ "film.rental_rate=?, film.length=?, film.replacement_cost=?, film.rating=?, film.special_features=?, language.id JOIN language ON film.language_id = language.id WHERE id=?";
+				+ "film.rental_rate=?, film.length=?, film.replacement_cost=?, film.rating=?, film.special_features=? WHERE film.id=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, film.getTitle());
 		stmt.setString(2, film.getDecsription());
@@ -558,31 +610,9 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 //			stmt = conn.prepareStatement(sql);
 //			stmt.setInt(1, film.getLanguageId());
 //			updateCount = stmt.executeUpdate();
-			
-			
-			
+//						
+//	}
 	}
-//			if (film.getActors() != null && film.getActors().size() > 0) {
-//				sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
-//				stmt = conn.prepareStatement(sql);
-////				if (film.getActors() != null) {
-//				for (Actor actor : film.getActors()) {
-//					stmt.setInt(1, film.getId());
-//					stmt.setInt(2, actor.getId());
-//					updateCount = stmt.executeUpdate();
-//				}
-////				}
-//			}
-//			sql = "DELETE FROM film_category WHERE film_id = ?";
-//			stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, film.getId());
-//			updateCount = stmt.executeUpdate();
-//			sql = "INSERT INTO film_category (film_id, category_id) VALUES (?,?)";
-//			stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, film.getId());
-//			stmt.setInt(2, film.getCategory());
-//			updateCount = stmt.executeUpdate();
-//		}
 	 catch (SQLException sqle) {
 		sqle.printStackTrace();
 		if (conn != null) {
@@ -594,14 +624,14 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 			}
 		}
 		return film;
-	} finally {
-		try {
+	}		
+	try {
 			conn.commit();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	
 	return film;
 }
 		

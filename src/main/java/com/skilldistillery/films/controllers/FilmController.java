@@ -132,10 +132,14 @@ public class FilmController {
 	
 	
 	@RequestMapping(path="editFilm.do", method= RequestMethod.POST)
-	public ModelAndView updatedFilm(@RequestParam("filmToUpdate")int filmId, RedirectAttributes redir) {
+	public ModelAndView updatedFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		Film film = DAO.findFilmById(filmId);
+//		Film film = DAO.findFilmById(filmId);
+		System.out.println(film);
+		System.out.println(" BEFORE SEND TO UPDATE ");
 		Film updatedFilm = DAO.updateFilm(film);
+		System.out.println(updatedFilm);
+		System.out.println("IN CONTROLLER BEFORE REDIRECT");
 		
 		redir.addFlashAttribute("film", updatedFilm);
 		mv.setViewName("redirect:Update.do");
