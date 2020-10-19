@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container-fluid">
-	<h1>Search Results</h1>
+	<h1>Your Search Returned ${count } Results</h1>
 	<c:out value="${filmID }" />
 	<c:if test="${empty films }">No film found</c:if>
 	<c:if test="${! empty films }">

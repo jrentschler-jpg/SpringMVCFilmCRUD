@@ -24,6 +24,9 @@ public class FilmController {
 	@RequestMapping(path="addNewFilm.do", method=RequestMethod.POST)
 	public String addFilmToDB(Film film, RedirectAttributes redir) {
 		DAO.createFilm(film);
+		if (film.getId()== 0) {
+			film = null;
+		}
 //		System.out.println(film);
 		redir.addFlashAttribute("film", film);
 		return "redirect:filmAdded.do";
@@ -32,7 +35,7 @@ public class FilmController {
 	@RequestMapping(path="filmAdded.do", method = RequestMethod.GET)
 	public ModelAndView filmAdded() {
 		ModelAndView mv = new ModelAndView();
-
+		mv.addObject("Confirmation", "Added");
 		mv.setViewName("ConfirmationPage");
 		return mv;
 	}
@@ -108,10 +111,13 @@ public class FilmController {
 	public ModelAndView SearchFilmResults(@RequestParam("Keyword")String input) {
 		List<Film> searchList =  DAO.findFilmsFromSearch(input.toUpperCase());
 		ModelAndView mv = new ModelAndView();
+		int count = 0;
 		for (Film film : searchList) {
 			film.setCategory(DAO.findCategoryByFilmID(film.getId()));
-		}
+			count++;
 			
+		}
+		mv.addObject("count", count);	
 //		for (Film film : searchList) {
 ////			System.out.println(film);
 //			mv.addObject("film", film);
@@ -135,11 +141,11 @@ public class FilmController {
 	public ModelAndView updatedFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 //		Film film = DAO.findFilmById(filmId);
-		System.out.println(film);
-		System.out.println(" BEFORE SEND TO UPDATE ");
+//		System.out.println(film);
+//		System.out.println(" BEFORE SEND TO UPDATE ");
 		Film updatedFilm = DAO.updateFilm(film);
 		System.out.println(updatedFilm);
-		System.out.println("IN CONTROLLER BEFORE REDIRECT");
+//		System.out.println("IN CONTROLLER BEFORE REDIRECT");
 		
 		redir.addFlashAttribute("film", updatedFilm);
 		mv.setViewName("redirect:Update.do");
@@ -148,6 +154,7 @@ public class FilmController {
 	@RequestMapping(path="Update.do", method=RequestMethod.GET)
 	  public ModelAndView Update() {
 	    ModelAndView mv = new ModelAndView();
+	    mv.addObject("Confirmation", "Updated");
 //	    mv.addObject(new Film());
 	    mv.setViewName("ConfirmationPage");
 	    return mv;

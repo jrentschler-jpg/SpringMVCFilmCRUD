@@ -12,7 +12,7 @@
 <!-- <body style="background-color:GREENYELLOW;"> -->
 	<c:choose>
 		<c:when test="${! empty film }">
-			<h1>Film Newly Created</h1>
+			<h1>Film ${Confirmation }</h1>
 			<table>
 				<tr>
 					<td>Film ID:</td>
@@ -33,8 +33,8 @@
 
 				</tr>
 				<tr>
-					<td>Language ID:</td>
-					<td>${film.languageId }</td>
+					<td>Language:</td>
+					<td>${film.language }</td>
 				</tr>
 				<tr>
 					<td>Rental Duration:</td>
@@ -49,7 +49,7 @@
 				</tr>
 				<tr>
 					<td>Replacement Cost:</td>
-					<td>${film.replacementCost }</td>
+					<td>$${film.replacementCost }</td>
 
 				</tr>
 				<tr>
@@ -60,8 +60,12 @@
 
 			</table>
 		</c:when>
- 	
-
+ 	<c:otherwise>
+ 			<h1>We are sorry. Your entry was not ${Confirmation }</h1>
+		<br>
+		Please try again
+ 	</c:otherwise>
+	
 		
 	</c:choose>
 	

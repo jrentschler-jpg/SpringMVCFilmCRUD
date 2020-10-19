@@ -355,12 +355,12 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 //	    		+ "JOIN actor on actor.id = film_actor.actor_id "
 ////	    		+ "WHERE category.name LIKE '%' ? '%' "
 //	    		+ "OR concat(actor.first_name,' ', actor.last_name) LIKE '%' ? '%'"
-	    		+ "WHERE film.title LIKE '%' ? '%' ";
+	    		+ "WHERE film.title LIKE '%' ? '%' OR film.description LIKE '%' ? '%'";
 		 try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, userSearch);
-//			stmt.setString(2, userSearch);
+			stmt.setString(2, userSearch);
 //			stmt.setString(3, userSearch);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -467,7 +467,8 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		
 		
 		int updateCount = pst.executeUpdate();
-		System.out.println(updateCount + " film was created.");
+		
+//		System.out.println(updateCount + " film was created.");
 		ResultSet keys = pst.getGeneratedKeys();
 		
 //		if (updateCount == 1) {
@@ -475,7 +476,44 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 			if (keys.next()) {
 				int newFilmId = keys.getInt(1);
 				newFilm.setId(newFilmId);
-			}
+				if (updateCount == 1) {
+					String english = "English";
+					String Italian = "Italian";
+					String Japanese = "Japanese";
+					String Mandarin = "Mandarin";
+					String French = "French";
+					String German = "German";
+					sql = "UPDATE language JOIN film ON film.language_id = language.id SET name = ? WHERE film.id = ?";
+					pst = conn.prepareStatement(sql);
+					pst.setInt(2, film.getId());
+					if(film.getLanguageId() == 1) {
+						pst.setString(1, english);
+						film.setLanguage(english);
+					}
+					if(film.getLanguageId() == 2) {
+						pst.setString(1, Italian);
+						film.setLanguage(Italian);
+					}
+					if(film.getLanguageId() == 3) {
+						pst.setString(1, Japanese);
+						film.setLanguage(Japanese);
+					}
+					if(film.getLanguageId() == 4) {
+						pst.setString(1, Mandarin);
+						film.setLanguage(Mandarin);
+					}
+					if(film.getLanguageId() == 5) {
+						pst.setString(1, French);
+						film.setLanguage(French);
+					}
+					if(film.getLanguageId() == 6) {
+						pst.setString(1, German);
+						film.setLanguage(German);
+					}
+					updateCount = pst.executeUpdate();
+//					System.out.println(film);}
+			}}
+			
 			keys.close();
 //		}
 		
@@ -580,7 +618,7 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 	
 	@Override
 	public Film updateFilm(Film film) {
-	film.setLanguageId(1);
+//	film.setLanguageId(1);
 	Connection conn = null;
 	try {
 		conn = DriverManager.getConnection(URL, user, pass);
@@ -600,19 +638,45 @@ public class MVCFilmsSiteDAOImpl implements MVCFilmSiteDAO{
 		stmt.setString(10, film.getSpecialFeatures());
 		stmt.setInt(11, film.getId());
 		int updateCount = stmt.executeUpdate();
-//		if (updateCount == 1) {
-//			// Replace actor's film list
-//			sql = "DELETE FROM language WHERE language_id = ?";
-//			stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, film.getLanguageId());
-//			updateCount = stmt.executeUpdate();}
-//			sql = "INSERT INTO language (id) VALUES (?)";
-//			stmt = conn.prepareStatement(sql);
-//			stmt.setInt(1, film.getLanguageId());
-//			updateCount = stmt.executeUpdate();
+		if (updateCount == 1) {
+			String english = "English";
+			String Italian = "Italian";
+			String Japanese = "Japanese";
+			String Mandarin = "Mandarin";
+			String French = "French";
+			String German = "German";
+			sql = "UPDATE language JOIN film ON film.language_id = language.id SET name = ? WHERE film.id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(2, film.getId());
+			if(film.getLanguageId() == 1) {
+				stmt.setString(1, english);
+				film.setLanguage(english);
+			}
+			if(film.getLanguageId() == 2) {
+				stmt.setString(1, Italian);
+				film.setLanguage(Italian);
+			}
+			if(film.getLanguageId() == 3) {
+				stmt.setString(1, Japanese);
+				film.setLanguage(Japanese);
+			}
+			if(film.getLanguageId() == 4) {
+				stmt.setString(1, Mandarin);
+				film.setLanguage(Mandarin);
+			}
+			if(film.getLanguageId() == 5) {
+				stmt.setString(1, French);
+				film.setLanguage(French);
+			}
+			if(film.getLanguageId() == 6) {
+				stmt.setString(1, German);
+				film.setLanguage(German);
+			}
+			updateCount = stmt.executeUpdate();
+			System.out.println(film);
 //						
 //	}
-	}
+	}}
 	 catch (SQLException sqle) {
 		sqle.printStackTrace();
 		if (conn != null) {
