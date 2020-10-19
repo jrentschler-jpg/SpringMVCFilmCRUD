@@ -22,10 +22,9 @@ On initial site launch, the user is prompted to specify whether to Add or Search
 Adding a film is fairly straightforward as there needs to only not be invalid input in any of the data or text fields to "in theory" create a film entry. When an entry is successfully input. The user is navigated, via re-route to avoid duplicate submission, to a confirmation page.
 
 The Film ID Search page allows for more pinpoint search results. A user will have the ability to search by Film ID. If a film is identified in the database all film and actor information is displayed.
+<img align="left" src="/images/Screen Shot 2020-10-19 at 1.31.45 AM.png"  width="227" height="101">
 
-The Search By Keyword page will move the program into the prompt for search keyword. The program will then create a search algorithm from the user input which allows the program to sift through the database for matching data from the film title or description. If no data is matched in the search, the program will display that no results were found. If one or more films matched with the search, each film will be displayed with associated details and options to update or delete.
- <img align="right" src="Screen Shot 2020-10-19 at 1.32.00 AM.png"  width="227" height="147">
- The program will also keep a count of the number of search results returned.
+The Search By Keyword page will move the program into the prompt for search keyword. The program will then create a search algorithm from the user input which allows the program to sift through the database for matching data from the film title or description. If no data is matched in the search, the program will display that no results were found. If one or more films matched with the search, each film will be displayed with associated details and options to update or delete.<img align="right" src="/images/Screen Shot 2020-10-19 at 1.32.00 AM.png"  width="227" height="147"> The program will also keep a count of the number of search results returned.
 
 Choosing to update a given entry will navigate to an update page where entry fields are automatically populated and the user is able to manage each field as they wish. Upon successful update the user is navigated to a confirmation screen.
 
