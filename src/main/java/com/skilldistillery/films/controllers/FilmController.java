@@ -117,6 +117,7 @@ public class FilmController {
 			count++;
 			
 		}
+		mv.addObject("keyword", input);
 		mv.addObject("count", count);	
 //		for (Film film : searchList) {
 ////			System.out.println(film);

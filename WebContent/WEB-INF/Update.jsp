@@ -52,9 +52,9 @@
 			Rating:     <form:select path="rating">
 				<option value="G">G</option>
 				<option value="PG">PG</option>
-				<option value="PG13">PG-13</option>
+				<option value="PG-13">PG-13</option>
 				<option value="R">R</option>
-				<option value="NC17">NC-17</option>
+				<option value="NC-17">NC-17</option>
 			</form:select>
 			<br>
 			Categories:  <form:select path="category">

@@ -47,7 +47,14 @@
 	<form:input class="input" path="replacementCost" placeholder="Enter the Replacement Cost:"/>
 	<br>
 	<form:label path="rating">Rating:</form:label><br>
-	<form:input class="input" path="rating" placeholder="Enter the Rating:"/>
+	 <form:select path="rating">
+				<option value="G">G</option>
+				<option value="PG">PG</option>
+				<option value="PG-13">PG-13</option>
+				<option value="R">R</option>
+				<option value="NC-17">NC-17</option>
+							</form:select>
+				
 	<br>
 	
 	<input class="submit" type="submit" value="Submit"/>
